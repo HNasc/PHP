@@ -1,0 +1,24 @@
+﻿@charset 'UTF-8';
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#idlogin{
+	width: 30%;
+	margin: 2% auto;
+	text-align: center;
+	padding: 2em 0;
+	line-height:1.6em;
+
+	border-radius: 1em 1em 2em 2em;
+}
+#idlogin legend{
+	margin: 0 2%;
+	padding: 1em;
+	
+	border-radius: 2em;
+}
+#idlogin *{}
