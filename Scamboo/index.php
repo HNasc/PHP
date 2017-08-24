@@ -10,79 +10,91 @@
   <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<div id='corpo'>		<!-- CABEÇALHO -->
-			<div id='logo'>
-				<img src='css/img/logo.png' alt='Logo' title='www.scamboo.com.br' />
-			</div>
-			<div id='h1'>
-			<label for='idlogin'><a href='?pag=login'>Login</a></label>
-			</div>
-			<div id='nav'>	  <!-- MENU -->
-					<ul>
-					<li>
-					<a href='?pag=conProdutos'>Produtos</a>
-					</li>
-					<li>
-					<a href='?pag=quemSomos'>Quem somos</a>
-                    </li>
-                    <li>
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#CadastreseModal">Cadastre-se</button>
-					<!-- Modal -->
-					<div class="modal fade" id="CadastreseModal" role="dialog">
-						<div class="modal-dialog">
-						
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Cadastro de usuário</h4>
-							</div>
-							<div class="modal-body">
-								<IFRAME src="cadastroUsuarioFrom.php" width="580" height="800" scrolling="yes" frameborder="0"></IFRAME> 
-							</div>
-							<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-							</div>
-						</div>
-						
-						</div>
-					</div>
-                    </li>
-					</ul>
-			</div>
-			<div id='middle'> <!-- CONTEUDO -->
-				<?php
-
-				//error_reporting(0); //Desliga todos os erros
-				//error_reporting(E_ERROR | E_WARNING | E_PARSE);
-				error_reporting(E_ALL ^ E_NOTICE); //Reporta os erros exceto o E_NOTICE
-				//error_reporting(E_ALL); //Reporting all PHP errors
-				$pag=1;
-				$pag=$_GET["pag"];
-				switch ($pag) {
-									/*CONSULTAR*/
-					case 'conProdutos':
-						include "Consulta/conProdutos.php";
-					break;
-										/*QUEM SOMOS*/
-					case 'quemSomos':
-						include "quemSomos.php";
-					break;
-										/*CADASTRAR*/
-					case 'cadastrese':
-						include "cadastroUsuario.php";
-					break;
-										/*LOGIN*/
-					case 'login':
-						include "login.php";
-					break;
-				}
-				?>
-			</div>
+<!-- #region Cabeçalho -->
+	<div class="jumbotron">
+	<div class="container text-center">
+		<img src='css/img/logo_v2.png' alt='Logo' title='www.scamboo.com.br' />
 	</div>
-<div id='footer'>			<!-- RODAPÉ -->
-Scamboo® <br/>
-<i>Desenvolvido por:<br/>Dhuli Gabriele & Endriu Gabriel</i>
-</div>
+	</div>
+<!-- #endregion -->
+
+<!-- #region Barra de Menu -->
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>                        
+		</button>
+		<a class="navbar-brand" href="#">Scamboo</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Produtos</a></li>
+			<li><a href="#">Quem Somos</a></li>
+			<li><a href="#">Contato</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href='#' data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</ul>
+		</div>
+	</div>
+	</nav>
+<!-- #endregion -->
+
+<!-- #region Modal Login -->
+	<!-- Modal -->
+	<div class="modal fade" id="CadastreseModal" role="dialog">
+		<div class="modal-dialog">
+		
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Login</h4>
+			</div>
+			<div class="modal-body">
+				<!-- <IFRAME src="cadastroUsuarioForm.php" width="580" height="800" scrolling="yes" frameborder="0"></IFRAME>  -->
+				<p>NUM SEI</p>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+<!-- #endregion -->
+
+<!-- #region Modal Cadastro de Usuario -->
+	<!-- Modal -->
+	<div class="modal fade" id="CadastreseModal" role="dialog">
+		<div class="modal-dialog">
+		
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Cadastro de usuário</h4>
+			</div>
+			<div class="modal-body">
+				<IFRAME src="cadastroUsuarioForm.php" width="580" height="800" scrolling="yes" frameborder="0"></IFRAME> 
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+<!-- #endregion -->
+
+<!-- #region Rodapé -->
+	<footer class="container-fluid text-center">
+		<p>Scamboo® <br/>
+		<i>Desenvolvido por:<br/>Dhuli Gabriele & Endriu Gabriel</i></p>
+	</footer>
+<!-- #endregion -->
 </body>
 </html>

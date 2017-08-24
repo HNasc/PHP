@@ -7,16 +7,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<!-- <div class="jumbotron">
-	<div class="container text-center">
-		<img src='css/img/logo_v2.png' alt='Logo' title='www.scamboo.com.br' />
-	</div>
-	</div> -->
-	<!-- <legend>Cadastro do usuário</legend> -->
 	<form action='Cadastro/cadclientes.php' enctype="multipart/form-data" method='post'>
+
+<!-- #region Dados pessoais -->
 	<p>
 	<center><h3>Dados pessoais</h3></center>
 	<div class="form-group">
@@ -40,6 +35,9 @@
 		<label for='fone'>Fone:</label>
 		<input name='fone' type='text' class='form-control' placeholder='(00)98888-7777'/>
 	</div>
+<!-- #endregion -->
+
+<!-- #region Localização -->
 	<center><h3>Localização</h3></center>
 	<div class='form-group'>
 		<label for='endereco'>Endereço:</label>
@@ -86,6 +84,9 @@
 		<input name='cep' type='text' class='form-control' placeholder='91000-000'/>
 	</div>
 	</p>
+<!-- #endregion -->
+
+<!-- #region Dados de acesso -->
 	<fieldset id='fieldcadacess'>
 	<legend>Dados de acesso</legend>
 	<div class='form-group'>
@@ -99,10 +100,8 @@
 	</fieldset>
 	<center><div class='form-group'><input class='btn btn-primary' type='submit' value='Cadastrar' />
 	<input class='btn btn-warning' type='reset' value='Limpar Dados' /></div></center>
+<!-- #endregion -->
+
 	</form>
-	<!-- <footer class="container-fluid text-center">
-  		<p>Scamboo® <br/>
-<i>Desenvolvido por:<br/>Dhuli Gabriele & Endriu Gabriel</i></p>
-	</footer> -->
 </body>
 </html>
