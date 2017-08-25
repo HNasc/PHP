@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action='Cadastro/cadclientes.php' enctype="multipart/form-data" method='post'>
+	<form action='Cadastro/cadUsuarios.php' enctype="multipart/form-data" method='post'>
 
 <!-- #region Dados pessoais -->
 	<p>
@@ -19,21 +19,30 @@
 		<input name='nome' type='text' class="form-control" placeholder='Nome Completo' />
 	</div>
 	<div class="form-group">
-	<label for='tipoPessoa'>Pessoa:</label><br/>
-		<label class="radio-inline"><input type="radio" name="tipoPessoa" value="F">Física</label>
-		<label class="radio-inline"><input type="radio" name="tipoPessoa" value="J">Jurídica</label>
-	</div>	
+	<label for='tipo_pessoa'>Pessoa:</label><br/>
+		<label class="radio-inline"><input type="radio" name="tipo_pessoa" value="F">Física</label>
+		<label class="radio-inline"><input type="radio" name="tipo_pessoa" value="J">Jurídica</label>
+	</div>
 	<div class="form-group">
-		<label for='cpf'>CPF / CNPJ:</label>
-		<input name='cpf' type='text' class="form-control" />
+	<label for='sexo'>Sexo:</label><br/>
+		<label class="radio-inline"><input type="radio" name="sexo" value="M">Masculino</label>
+		<label class="radio-inline"><input type="radio" name="sexo" value="F">Feminino</label>
+	</div>
+	<div class="form-group">
+		<label for='nascimento'>Data de Nascimento:</label>
+		<input name='nascimento' type='text' class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for='cpf_cnpj'>CPF / CNPJ:</label>
+		<input name='cpf_cnpj' type='text' class="form-control" />
 	</div>
 	<div class="form-group">
       <label for="email">Email:</label>
       <input name="email" type="email" class="form-control" placeholder='exemplo@scamboo.com'>
     </div>
 	<div class='form-group'>
-		<label for='fone'>Fone:</label>
-		<input name='fone' type='text' class='form-control' placeholder='(00)98888-7777'/>
+		<label for='telefone'>Fone:</label>
+		<input name='telefone' type='text' class='form-control' placeholder='(00)98888-7777'/>
 	</div>
 <!-- #endregion -->
 
@@ -41,7 +50,19 @@
 	<center><h3>Localização</h3></center>
 	<div class='form-group'>
 		<label for='endereco'>Endereço:</label>
-		<input name='endereco' type='text' class='form-control' placeholder='Rua exemplo, n 90' />
+		<input name='endereco' type='text' class='form-control' placeholder='Rua exemplo...' />
+	</div>
+	<div class='form-group'>
+		<label for='numero'>Número:</label>
+		<input name='numero' type='text' class='form-control' />
+	</div>
+	<div class='form-group'>
+		<label for='complemento'>Complemento:</label>
+		<input name='complemento' type='text' class='form-control' />
+	</div>
+	<div class="form-group">
+		<label for='bairro'>Bairro:</label>
+		<input name='bairro' type='text' class="form-control" />
 	</div>
 	<div class='form-group'>
 		<label for='cidade'>Cidade:</label>
