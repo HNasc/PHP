@@ -16,9 +16,9 @@ class cadBase{
 //CADASTRO DE USUARIO//
 //////////////////////
 
-function cadUsuarios($nome,$tipo_pessoa,$sexo,$nascimento,$cpf_cnpj,$email,$telefone,$endereco,$numero,$complemento,$cidade,$bairro,$estado,$cep,$usuario,$senha){
+function cadUsuarios($nome,$sexo,$nascimento,$cpf,$email,$telefone,$endereco,$numero,$complemento,$cidade,$bairro,$estado,$cep,$usuario,$senha){
 	//echo $_POST['nome'], '<br/>', $_POST['tipo_pessoa'], '<br/>', $_POST['sexo'], '<br/>', $_POST['nascimento'], '<br/>', $_POST['cpf_cnpj'], '<br/>', $_POST['email'], '<br/>', $_POST['telefone'], '<br/>', $_POST['endereco'], '<br/>', $_POST['numero'], '<br/>', $_POST['complemento'], '<br/>', $_POST['cidade'], '<br/>', $_POST['bairro'], '<br/>', $_POST['estado'], '<br/>', $_POST['cep'], '<br/>', $_POST['usuario'], '<br/>', $_POST['senha'];
-	if(!empty($nome) && !empty($tipo_pessoa) && !empty($cpf_cnpj) && !empty($email) && !empty($endereco) && !empty($numero) && !empty($cidade) && !empty($bairro) && !empty($estado) && !empty($cep) && !empty($usuario) && !empty($senha))
+	if(!empty($nome) && !empty($cpf) && !empty($email) && !empty($endereco) && !empty($numero) && !empty($cidade) && !empty($bairro) && !empty($estado) && !empty($cep) && !empty($usuario) && !empty($senha))
 	{
 		$pesquisar_email=mysql_query('SELECT email FROM usuario');
 		while($result = mysql_fetch_assoc($pesquisar_email))
@@ -34,12 +34,12 @@ function cadUsuarios($nome,$tipo_pessoa,$sexo,$nascimento,$cpf_cnpj,$email,$tele
 	}
 	else
 	{
-		$inserir_cliente=mysql_query("INSERT INTO usuario (Nome, TipoPessoa, Sexo, Nascimento, CPF_CNPJ, Email, Telefone, Endereco, Numero, Complemento, Cidade, Bairro, UF, CEP, Usuario, Senha, Situacao) values('$nome','$tipo_pessoa','$cpf_cnpj','$email','$endereco','$numero','$cidade','$bairro','$estado','$cep','$usuario','$senha', 'A')");
+		$inserir_cliente=mysql_query("INSERT INTO usuario (Nome, Sexo, Nascimento, CPF, Email, Telefone, Endereco, Numero, Complemento, Cidade, Bairro, UF, CEP, Usuario, Senha, Situacao) 
+													values('$nome','$sexo','$nascimento','$cpf','$email','$telefone','$endereco','$numero','$complemento','$cidade','$bairro','$estado','$cep','$usuario',SHA2('$senha',256), 'A')");
 		if(!$inserir_cliente)die("Erro ao inserir dados: ".mysql_error());
 		else
 		{
 			echo '<br/><p><font color="green"><h3 align="center">Cadastro salvo com sucesso!</h3></font></p>';
-			echo '<br /><a href="#">Voltar</a>';
 		}
 	}
 	}
@@ -47,13 +47,11 @@ function cadUsuarios($nome,$tipo_pessoa,$sexo,$nascimento,$cpf_cnpj,$email,$tele
 	{
 		echo "Preencha todos os campos!";
 	}
-	}//cadCliente
-}//class
+}//cadCliente
 
 
-/*
-		function cadProdutos($nome, $categoria, $descricao, $arquivo){
-			if(!empty($nome) && !empty($categoria) && !empty($descricao) ){
+function cadProdutos($nome, $img, $categoria, $descricao, $idUsuario){
+			if(!empty($nome) && !empty($categoria) && !empty($idUsuario) ){
 			if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 {
 
@@ -77,33 +75,36 @@ function cadUsuarios($nome,$tipo_pessoa,$sexo,$nascimento,$cpf_cnpj,$email,$tele
 		$novoNome = md5(microtime()) . $extensao;
 		
 		// Concatena a pasta com o nome
-		$destino = '../Consulta/imgprod/' . $novoNome; 
+		$destino = '../Consulta/imgProduto/' . $novoNome; 
 		
 		// tenta mover o arquivo para o destino
 		if( @move_uploaded_file( $arquivo_tmp, $destino  ))
 		{
-			echo "<br/><br/>Imagem salva com sucesso em : <strong>" . $destino . "</strong><br />";
-			echo "<img src=\"" . $destino . "\" />";
+			//echo "<br/><br/>Imagem salva com sucesso em : <strong>" . $destino . "</strong><br />";
+			//echo "<img src=\"" . $destino . "\" />";
 		}
 		else
 			echo "<br/><br/>Erro ao salvar a imagem. Aparentemente você não tem permissão de escrita.<br />";
 	}
 	else
 		echo "<br/><br/>Você poderá enviar apenas imagens \"*.jpg;*.jpeg;*.gif;*.png\"<br />";
+		//echo $img, ' ', $extensao;
 }
 else
 {
 	echo "<br/><br/>Você não enviou nenhuma imagem!";
 }
 				if(($novoNome) == null){ $novoNome = 'default.jpg'; }
-				$inserir_produto=mysql_query(" INSERT INTO Produtos
-                (nome,categoria,descricao,idusuario,img) values('$nome', '$categoria', '$descricao', 9, '$novoNome')");
+				$inserir_produto=mysql_query(" INSERT INTO Produto
+                (nome,img,categoria,descricao,idusuario,situacao) values('$nome', '$novoNome', '$categoria', '$descricao', '$idUsuario', 'A')");
 				if(!$inserir_produto)die("ERRROOUU ".mysql_error());
-				
+				else
+				{
+					echo '<br/><p><font color="green"><h3 align="center">Cadastro salvo com sucesso!</h3></font></p>';
+				}
 			}else{
 				echo "Preencha todos os campos!";
-				}
-            }//cadProdutos
-		}//class
-//FIM*/
+			}
+}//cadProdutos
+}//class
 ?>

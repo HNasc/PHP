@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scamboo | Cadastrar</title>
+  <title>Scamboo | Cadastro de Usuario</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,12 +16,7 @@
 	<center><h3>Dados pessoais</h3></center>
 	<div class="form-group">
 		<label for='nome'>Nome:</label>
-		<input name='nome' type='text' class="form-control" placeholder='Nome Completo' />
-	</div>
-	<div class="form-group">
-	<label for='tipo_pessoa'>Pessoa:</label><br/>
-		<label class="radio-inline"><input type="radio" name="tipo_pessoa" value="F">Física</label>
-		<label class="radio-inline"><input type="radio" name="tipo_pessoa" value="J">Jurídica</label>
+		<input name='nome' type='text' class="form-control" placeholder='Nome Completo' maxlength="80"/>
 	</div>
 	<div class="form-group">
 	<label for='sexo'>Sexo:</label><br/>
@@ -30,19 +25,19 @@
 	</div>
 	<div class="form-group">
 		<label for='nascimento'>Data de Nascimento:</label>
-		<input name='nascimento' type='text' class="form-control" />
+		<input name='nascimento' type='text' class="form-control" maxlength="8"/>
 	</div>
 	<div class="form-group">
-		<label for='cpf_cnpj'>CPF / CNPJ:</label>
-		<input name='cpf_cnpj' type='text' class="form-control" />
+		<label for='cpf'>CPF:</label>
+		<input name='cpf' type='text' class="form-control" maxlength="15"/>
 	</div>
 	<div class="form-group">
       <label for="email">Email:</label>
-      <input name="email" type="email" class="form-control" placeholder='exemplo@scamboo.com'>
+      <input name="email" type="email" class="form-control" placeholder='exemplo@scamboo.com' maxlength="80"/>
     </div>
 	<div class='form-group'>
 		<label for='telefone'>Fone:</label>
-		<input name='telefone' type='text' class='form-control' placeholder='(00)98888-7777'/>
+		<input name='telefone' type='text' class='form-control' placeholder='(00)98888-7777'maxlength="15"/>
 	</div>
 <!-- #endregion -->
 
@@ -50,23 +45,23 @@
 	<center><h3>Localização</h3></center>
 	<div class='form-group'>
 		<label for='endereco'>Endereço:</label>
-		<input name='endereco' type='text' class='form-control' placeholder='Rua exemplo...' />
+		<input name='endereco' type='text' class='form-control' placeholder='Rua exemplo...' maxlength="60"/>
 	</div>
 	<div class='form-group'>
 		<label for='numero'>Número:</label>
-		<input name='numero' type='text' class='form-control' />
+		<input name='numero' type='text' class='form-control' maxlength="15"/>
 	</div>
 	<div class='form-group'>
 		<label for='complemento'>Complemento:</label>
-		<input name='complemento' type='text' class='form-control' />
+		<input name='complemento' type='text' class='form-control' maxlength="50"/>
 	</div>
 	<div class="form-group">
 		<label for='bairro'>Bairro:</label>
-		<input name='bairro' type='text' class="form-control" />
+		<input name='bairro' type='text' class="form-control" maxlength="50"/>
 	</div>
 	<div class='form-group'>
 		<label for='cidade'>Cidade:</label>
-		<input name='cidade' type='text' class='form-control' />
+		<input name='cidade' type='text' class='form-control' maxlength="50"/>
 	</div>
 	<div class='form-group'>
 	<label for='estado'>Estado:</label>
@@ -102,7 +97,7 @@
 	</div>
 	<div class='form-group'>
 		<label for='cep'>CEP:</label>
-		<input name='cep' type='text' class='form-control' placeholder='91000-000'/>
+		<input name='cep' type='text' class='form-control' placeholder='91000000' maxlength="8"/>
 	</div>
 	</p>
 <!-- #endregion -->
