@@ -19,29 +19,29 @@
 <!-- #endregion -->
 
 <!-- #region Barra de Menu -->
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>                        
-		</button>
-		<a class="navbar-brand" href="#">Scamboo</a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Produtos</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#quemSomos">Quem Somos</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#contatoModal">Contato</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href='#' data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>
-			<li><a href='#' data-toggle="modal" data-target="#LoginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		</ul>
-		</div>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>                        
+	</button>
+	<a class="navbar-brand" href="#">Scamboo</a>
 	</div>
-	</nav>
+	<div class="collapse navbar-collapse" id="myNavbar">
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="#">Produtos</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#quemSomos">Quem Somos</a></li>
+		<li><a href="#" data-toggle="modal" data-target="#contatoModal">Contato</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href='#' data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>
+		<li><a href='#' data-toggle="modal" data-target="#LoginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	</ul>
+	</div>
+</div>
+</nav>
 <!-- #endregion -->
 
 <!-- #region Modal Login -->
@@ -165,7 +165,7 @@
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
+        <img src="css/img/banner1.jpg" alt="Baby Care">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -173,7 +173,7 @@
       </div>
 
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
+        <img src="css/img/banner2.jpg" alt="Boni Baby">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>

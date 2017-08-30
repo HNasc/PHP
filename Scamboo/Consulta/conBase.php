@@ -125,13 +125,22 @@ class conBase{
 			if($idUsuario > 0){
 				$InsereUsuario = "and IdUsuario = ".$idUsuario;
 			}
-			
-            echo "<div id='srcCon'>
-            <form method='post'>
-                <input name='busca' type='text' placeholder='Buscar Produtos' />
-                <input type='submit' value='Buscar' />
-            </form></div><br />
-            ";
+			echo "  <form  method='post'>
+						<div class='input-group'>
+							<input type='text' name='busca' class='form-control' placeholder='Buscar...'>
+						<div class='input-group-btn'>
+							<button class='btn btn-default' type='submit'>
+								<i class='glyphicon glyphicon-search'></i>
+							</button>
+						</div>
+						</div>
+					</form> </div><br />";
+            // echo "<div id='srcCon'>
+            // <form method='post'>
+            //     <input name='busca' type='text' placeholder='Buscar Produtos' />
+            //     <input type='submit' value='Buscar' />
+            // </form></div><br />
+            // ";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
 			$query= mysql_query ("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome");
