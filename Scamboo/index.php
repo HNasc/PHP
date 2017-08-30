@@ -11,7 +11,6 @@
 </head>
 <body>
 <!-- #region Cabeçalho -->
-<!-- Logotipo -->
 	<div class="jumbotron">
 	<div class="container text-center">
 		<img src='css/img/logo_v2.png' alt='Logo' title='www.scamboo.com.br' />
@@ -98,9 +97,8 @@
 			</form>
 			</div>
 		</div>
-		
 		</div>
-	</div>
+</div>
 <!-- #endregion -->
 
 <!-- #region Modal Quem Somos -->
@@ -198,18 +196,10 @@
 <div class="container text-center">    
   <h3>Produtos</h3><br>
   <div class="row">
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-    </div>
-    <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-	<div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
+		<?php 
+			include 'Consulta/conProdutos.php'
+		?>
+  </div>
 </div><br>
 <!-- #endregion -->
 

@@ -113,8 +113,19 @@ class conBase{
 /*===============================================================================================================================================*/
 												/* CONSULTA PRODUTOS */
 		function consultaProduto() {
-            $busca="";
-            // echo "<h3>Consultar Produtos</h3><br />";
+			//Variaveis
+			if(isset($_SESSION['IdUsuario']) > 0)
+			$idUsuario = $_SESSION['IdUsuario'];
+			else
+			$idUsuario = null;
+			$busca="";
+			$InsereUsuario = "";
+			
+			//Valida se possui usuário
+			if($idUsuario > 0){
+				$InsereUsuario = "and IdUsuario = ".$idUsuario;
+			}
+			
             echo "<div id='srcCon'>
             <form method='post'>
                 <input name='busca' type='text' placeholder='Buscar Produtos' />
@@ -123,9 +134,9 @@ class conBase{
             ";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
-            //$query= mysql_query ("SELECT * FROM tbprodutos WHERE nome LIKE '%$busca%' ORDER BY codigo");
-            $query= mysql_query ("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' ORDER BY nome");
-                                    /* LISTA DE PRODUTOS */
+			$query= mysql_query ("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome");
+			
+            	                 /* LISTA DE PRODUTOS */
             
             while($result=mysql_fetch_assoc($query)){
                 if(isset($result['Nome']) && $result['Categoria'])
