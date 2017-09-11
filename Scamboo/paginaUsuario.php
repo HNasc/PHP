@@ -1,9 +1,18 @@
 <?php
+mysql_query("SET NAMES 'utf8'");
+mysql_query('SET character_set_connection=utf8');
+mysql_query('SET character_set_client=utf8');
+mysql_query('SET character_set_results=utf8');
 session_start();
+mb_internal_encoding("UTF-8"); 
+mb_http_output( "iso-8859-1" );  
+ob_start("mb_output_handler");   
+header("Content-Type: text/html; charset=ISO-8859-1",true);
 if(!$_SESSION['IdUsuario']) {
   exit("erro sem permissão para essa parte");
 
 }
+$nome = utf8_encode($_SESSION['nome']);
 ?> 
 <!DOCTYPE html>
 <html>
@@ -34,7 +43,7 @@ if(!$_SESSION['IdUsuario']) {
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>                        
 		</button>
-		<a class="navbar-brand" href="#">Olá, <?php echo $_SESSION['nome'] ?></a>
+		<a class="navbar-brand" href="#">Olá, <?php echo($nome); ?></a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">

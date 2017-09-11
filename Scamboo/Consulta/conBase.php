@@ -135,28 +135,40 @@ class conBase{
 						</div>
 						</div>
 					</form> </div><br />";
-            // echo "<div id='srcCon'>
-            // <form method='post'>
-            //     <input name='busca' type='text' placeholder='Buscar Produtos' />
-            //     <input type='submit' value='Buscar' />
-            // </form></div><br />
-            // ";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
-			$query= mysql_query ("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome");
+			$query= mysql_query("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome");
 			
             	                 /* LISTA DE PRODUTOS */
             
             while($result=mysql_fetch_assoc($query)){
-                if(isset($result['Nome']) && $result['Categoria'])
-                echo "<div class='col-sm-4'>";
-                echo "<img src='Consulta/imgProduto/".$result['img']."' class='img-responsive' style='width:100%' alt=' ".$result['Nome']." '>";
-                echo "<p>".$result['Nome']."<br />";
-                echo $result['Categoria']."</p>";
-                echo "</div>";
-                // echo "<br /><a href='#'>Editar</a>";
-                // echo "<a href='#'>Excluir</a><br /></p></div>";
-            }
+                if(isset($result['Nome']) && $result['Categoria']){ ?>
+                <div class='col-sm-4'>
+					<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
+					<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#ProdutoModal<?php echo $result['IdProduto']; ?>">Visualizar</button>
+					<p><?php echo $result['Nome']; ?><br />
+					<?php echo $result['IdProduto']; ?>
+					<?php echo $result['Categoria']; ?></p>
+                </div>
+<!-- #region Modal Produto -->
+				<div class="modal fade" id="ProdutoModal<?php echo $result['IdProduto']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title text-center" id="myModalLabel"><?php echo $result['Nome']; ?></h4>
+							</div>
+							<div class='modal-body'>
+								<p><?php echo $result['IdProduto']; ?></p>
+								<p><?php echo $result['Nome']; ?></p>
+								<p><?php echo $result['Descricao']; ?></p>
+							</div>
+						</div>
+					</div>
+					</div>
+<!-- #endregion -->
+<?php 			}
+			}
 	    }//ConsultaProduto
 }//Class
 ?>
