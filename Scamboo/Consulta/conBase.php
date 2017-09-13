@@ -144,10 +144,11 @@ class conBase{
             while($result=mysql_fetch_assoc($query)){
                 if(isset($result['Nome']) && $result['Categoria']){ ?>
                 <div class='col-sm-4'>
-					<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
+					<a href="" data-toggle="modal" data-target="#ProdutoModal<?php echo $result['IdProduto']; ?>">
+						<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
+					</a>
 					<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#ProdutoModal<?php echo $result['IdProduto']; ?>">Visualizar</button>
 					<p><?php echo $result['Nome']; ?><br />
-					<?php echo $result['IdProduto']; ?>
 					<?php echo $result['Categoria']; ?></p>
                 </div>
 <!-- #region Modal Produto -->
@@ -159,9 +160,9 @@ class conBase{
 								<h4 class="modal-title text-center" id="myModalLabel"><?php echo $result['Nome']; ?></h4>
 							</div>
 							<div class='modal-body'>
-								<p><?php echo $result['IdProduto']; ?></p>
-								<p><?php echo $result['Nome']; ?></p>
-								<p><?php echo $result['Descricao']; ?></p>
+								<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
+								<p><strong>Produto: </strong><?php echo $result['Nome']; ?></p>
+								<p><strong>Descrição: </strong><?php echo $result['Descricao']; ?></p>
 							</div>
 						</div>
 					</div>
