@@ -142,7 +142,8 @@ class conBase{
             	                 /* LISTA DE PRODUTOS */
             
             while($result=mysql_fetch_assoc($query)){
-                if(isset($result['Nome']) && $result['Categoria']){ ?>
+				if(isset($result['Nome']) && $result['Categoria']){ ?>
+				<?php include 'teste.php' ?>
                 <div class='col-sm-4'>
 					<a href="" data-toggle="modal" data-target="#ProdutoModal<?php echo $result['IdProduto']; ?>">
 						<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
