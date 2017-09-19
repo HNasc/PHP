@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
@@ -41,13 +41,6 @@ img{
     padding: 0 10px 0 0;
     width: 150px;
 }
-/* .scb-prod-col-1 img{
-    float: left;
-    width: 20%;
-    padding: 2.5px;
-    background: #eee;
-    cursor: pointer;
-} */
 .scb-prod-col-1 img:hover,
 .scb-prod-col-1 img.active{
     background: #99ccff;
@@ -129,4 +122,4 @@ img{
     padding: 10px 10px 0 0;
     width: 70px;
     margin-bottom: 5px !important;
-}
+} */

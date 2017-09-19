@@ -123,7 +123,7 @@ class conBase{
 			
 			//Valida se possui usuário
 			if($idUsuario > 0){
-				$InsereUsuario = "and IdUsuario = ".$idUsuario;
+				$InsereUsuario = "and produto.IdUsuario = ".$idUsuario;
 			}
 			echo "  <form  method='post'>
 						<div class='input-group'>
@@ -137,14 +137,34 @@ class conBase{
 					</form> </div><br />";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
-			$query= mysql_query("SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome");
+			$query= mysql_query("SELECT produto.IdProduto,
+										produto.IdUsuario,
+										produto.Nome AS NomeProduto,
+										produto.Descricao,
+										produto.Categoria,
+										produto.img,
+										produto.Situacao,
+										produto.Publicacao,
+										usuario.Nome AS NomeUsuario,
+										usuario.Email,
+										usuario.Cidade,
+										usuario.Bairro
+								FROM produto
+								INNER JOIN usuario ON usuario.IdUsuario = produto.IdUsuario
+								WHERE produto.Nome LIKE '%$busca%' and produto.Situacao = 'A' $InsereUsuario ORDER BY produto.Nome");
 			
-            	                 /* LISTA DE PRODUTOS */
-            
             while($result=mysql_fetch_assoc($query)){
-				if(isset($result['Nome']) && $result['Categoria']){ ?>
-				<?php include 'teste.php' ?>
-                <div class='col-sm-4'>
+				if(isset($result['NomeProduto']) && $result['Categoria']){
+				include 'Consulta/listaProdutos.php';
+                
+ 			}
+			}
+	    }//ConsultaProduto
+}//Class
+
+/*
+old: SELECT * FROM Produto WHERE Nome LIKE '%$busca%' and Situacao = 'A' $InsereUsuario ORDER BY nome
+<div class='col-sm-4'>
 					<a href="" data-toggle="modal" data-target="#ProdutoModal<?php echo $result['IdProduto']; ?>">
 						<img src="Consulta/imgProduto/<?php echo $result['img']; ?>" class="img-responsive" style="width:100%" alt="<?php echo $result['Nome']; ?>">
 					</a>
@@ -169,8 +189,6 @@ class conBase{
 					</div>
 					</div>
 <!-- #endregion -->
-<?php 			}
-			}
-	    }//ConsultaProduto
-}//Class
+
+*/
 ?>

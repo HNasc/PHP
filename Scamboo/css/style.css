@@ -42,3 +42,114 @@ footer {
 	display: none; 
 }
 }
+.produtos{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+	vertical-align: baseline;
+}
+.produtos ul{
+    margin: 0;
+    padding: 0;
+    /*border: 0;
+    font-size: 100%;
+    font: inherit;
+	vertical-align: baseline; */
+	border: 1px solid #ccc!important;
+}
+.produtos h1{
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: 500;
+    /* text-align: center; */
+}
+.scb-prod-col-1{
+    float: left;
+    height: 102px;
+    padding: 0 10px 0 0;
+    width: 150px;
+}
+.scb-prod-col-1 img:hover,
+.scb-prod-col-1 img.active{
+    background: #99ccff;
+}
+.scb-item{
+    /* margin-bottom: 10px; */
+    overflow: hidden;
+    display: block;
+}
+
+.scb-prod-col-2{
+    float: left;
+    height: 102px;
+    overflow: hidden;
+    /* padding: 10px 10px 10px 0; */
+    position: relative;
+    width: 380px;
+}
+.scb-prod-col-2-title{
+    overflow: hidden;
+    height: 51px;
+}
+
+.scb-prod-col-2 h3{
+    color: #38b;
+    font-size: 1.167em;
+    font-weight: 700;
+    line-height: 1.143em;
+    max-height: 20px;
+    overflow: hidden;
+}
+.scb-prod-image{
+    height: 102px;
+    width: 142px;
+}
+.scb-prod-image-box{
+    background: #fff;
+    border-right: 1px solid #ccc;
+    color: #666;
+    display: table-cell;
+    height: 102px;
+    overflow: hidden;
+    /* text-align: center; */
+    vertical-align: middle;
+    width: 135px;
+}
+.scb-prod-image-box .image{
+    color: #666;
+    max-height: 102px;
+    max-width: 135px;
+    vertical-align: middle;
+}
+.scb-prod-col-2-info{
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+}
+.scb-prod-col-2-info p{
+    font-size: 1em;
+    line-height: 1.70em;
+}
+.scb-prod-col-3{
+    float: left;
+    height: 102px;
+    overflow: hidden;
+    padding: 30px 10px 0 0;
+    width: 125px;
+}
+.scb-prod-col-3 button{
+    float: left;
+    margin: 0 0 5px;
+    overflow: hidden;
+
+}
+.scb-prod-col-4{
+    float: right;
+    height: 102px;
+    overflow: hidden;
+    padding: 10px 10px 0 0;
+    width: 70px;
+    margin-bottom: 5px !important;
+}

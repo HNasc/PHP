@@ -16,8 +16,8 @@
 ?>
 <!-- #endregion -->
 <!-- #region Conteúdo -->
-<div class="container text-center">    
-  <h3>Produtos</h3><br>
+<h3 align="center">Produtos</h3><br>
+<div class="container text-left">    
   <div class="row">
 		<?php 
 			include 'Consulta/conProdutos.php'
