@@ -30,7 +30,11 @@
                     </div>
                 </div>
                 <div class="scb-prod-col-3">
-                <a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>
+                <?php 
+                if($idUsuario <> $result['IdUsuario'])
+                echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
+                ?>
+                <!-- <a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/> -->
                 </div>
                 <div class="scb-prod-col-4">
                     <?php echo $result['Publicacao']; ?>

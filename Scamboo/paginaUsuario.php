@@ -59,13 +59,13 @@ $nome = utf8_encode($_SESSION['nome']);
 <!-- #endregion -->
 
 <!-- #region Conteudo -->
-<div class="container text-center"> 
-  <h3>Meus Produtos</h3><br>
-	<div class="row">
-	<?php 
-		include 'Consulta/conProdutos.php'
-	?>
-	</div>
+<h3 align="center">Produtos</h3><br>
+<div class="container text-left">    
+  <div class="row">
+		<?php 
+			include 'Consulta/conProdutos.php'
+		?>
+  </div>
 </div><br>
 <!-- #endregion -->
 

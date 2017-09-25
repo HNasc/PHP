@@ -87,7 +87,8 @@
 				</div>
 				<!-- Falta implementar o "Lembrar senha" -->
 				<div class="checkbox">
-					<label><input type="checkbox"> Lembrar senha</label>
+					<label><input type="checkbox"> Lembrar senha</label><br /><br />
+					<a href="#">Esqueci minha senha</a>
 				</div>
 				<button type="submit" class="btn btn-default">Entrar</button>
 			</form>
