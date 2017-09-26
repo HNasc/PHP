@@ -35,7 +35,7 @@ function cadUsuarios($nome,$sexo,$nascimento,$cpf,$email,$telefone,$endereco,$nu
 	else
 	{
 		$inserir_cliente=mysql_query("INSERT INTO usuario (Nome, Sexo, Nascimento, CPF, Email, Telefone, Endereco, Numero, Complemento, Cidade, Bairro, UF, CEP, Usuario, Senha, Situacao) 
-													values('$nome','$sexo','$nascimento','$cpf','$email','$telefone','$endereco','$numero','$complemento','$cidade','$bairro','$estado','$cep','$usuario',SHA2('$senha',256), 'A')");
+													values('$nome','$sexo',STR_TO_DATE( '$nascimento', '%d/%m/%Y' ),'$cpf','$email','$telefone','$endereco','$numero','$complemento','$cidade','$bairro','$estado','$cep','$usuario',SHA2('$senha',256), 'A')");
 		if(!$inserir_cliente)die("Erro ao inserir dados: ".mysql_error());
 		else
 		{
@@ -94,9 +94,9 @@ else
 {
 	echo "<br/><br/>Você não enviou nenhuma imagem!";
 }
-				if(($novoNome) == null){ $novoNome = 'default.jpg'; }
+				if(($novoNome) == null || ($novoNome) == ''){ $novoNome = 'default.jpg'; }
 				$inserir_produto=mysql_query(" INSERT INTO Produto
-                (nome,img,categoria,descricao,idusuario,situacao) values('$nome', '$novoNome', '$categoria', '$descricao', '$idUsuario', 'A')");
+                (nome,img,categoria,descricao,idusuario,situacao,publicacao) values('$nome', '$novoNome', '$categoria', '$descricao', '$idUsuario', 'A', now())");
 				if(!$inserir_produto)die("ERRROOUU ".mysql_error());
 				else
 				{

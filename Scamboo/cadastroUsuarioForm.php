@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script> 
 </head>
 <body>
-	<form action='Cadastro/cadUsuarios.php' enctype="multipart/form-data" method='post'>
+	<form name="formCadastro" action='Cadastro/cadUsuarios.php' enctype="multipart/form-data" method='post'>
 
 <!-- #region Dados pessoais -->
 	<p>
@@ -25,11 +26,11 @@
 	</div>
 	<div class="form-group">
 		<label for='nascimento'>Data de Nascimento:</label>
-		<input name='nascimento' type='text' class="form-control" maxlength="8"/>
+		<input name='nascimento' type='text' class="form-control" maxlength="10" onKeyPress="MascaraData(formCadastro.nascimento);" onBlur= "ValidaData(formCadastro.nascimento);"/>
 	</div>
 	<div class="form-group">
 		<label for='cpf'>CPF:</label>
-		<input name='cpf' type='text' class="form-control" maxlength="15"/>
+		<input name='cpf' type='text' class="form-control" maxlength="15"onKeyPress="MascaraCPF(formCadastro.cpf);"/>
 	</div>
 	<div class="form-group">
       <label for="email">Email:</label>

@@ -25,78 +25,15 @@
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href='#' data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>
-		<li><a href='#' data-toggle="modal" data-target="#LoginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<li><a href='#' data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	</ul>
 	</div>
 </div>
 </nav>
 <!-- #endregion -->
-
-<!-- #region Modal Login -->
-<div class="modal fade" id="LoginModal" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header bg-primary">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title"><center>Login</center></h4>
-			</div>
-			<div class="modal-body">
-			<?php
-			mysql_query("SET NAMES 'utf8'");
-			mysql_query('SET character_set_connection=utf8');
-			mysql_query('SET character_set_client=utf8');
-			mysql_query('SET character_set_results=utf8');
-			mb_internal_encoding("UTF-8"); 
-			mb_http_output( "iso-8859-1" );  
-			ob_start("mb_output_handler");   
-			header("Content-Type: text/html; charset=ISO-8859-1",true);
-			$aviso= "";
-			if(isset($_POST['email'])&& isset($_POST['senha'])){
-				$DB=new PDO('mysql:host=localhost;dbname=scamboo','root','');
-				$DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$rs = $DB->prepare("SELECT IdUsuario,nome FROM usuario WHERE email=:email AND senha=SHA2(:senha,256)");
-				$rs->bindParam("email", $_POST['email']);
-				$rs->bindParam("senha", $_POST['senha']);
-				$rs->execute();
-				$email = $rs->fetch(PDO::FETCH_ASSOC);
-				if($email['IdUsuario']){
-					// Logou
-					session_start();
-					$_SESSION['IdUsuario']=$email['IdUsuario'];
-					//nome do usuário que vai aparecer na página do usuario
-					$_SESSION['nome']=utf8_decode($email['nome']);
-					header('Location: paginaUsuario.php');
-					//$aviso="Aeeeee!";
-				}
-				else {
-					//erro ao logar
-					$aviso="Senha ou usuário inválidos";
-				}
-
-			}
-			?>
-			<?php echo $aviso; ?>
-			<form action="index.php" method="POST">
-				<div class="form-group">
-					<label for="email">Email:</label>
-					<input type="email" class="form-control" name="email">
-				</div>
-				<div class="form-group">
-					<label for="pwd">Senha:</label>
-					<input type="password" class="form-control" name="senha">
-				</div>
-				<!-- Falta implementar o "Lembrar senha" -->
-				<div class="checkbox">
-					<label><input type="checkbox"> Lembrar senha</label><br /><br />
-					<a href="#">Esqueci minha senha</a>
-				</div>
-				<button type="submit" class="btn btn-default">Entrar</button>
-			</form>
-			</div>
-		</div>
-		</div>
-</div>
-<!-- #endregion -->
+<?php 
+	include 'login.html'
+?>
 
 <!-- #region Modal Quem Somos -->
 	<div class="modal fade" id="quemSomos" role="dialog">
