@@ -70,28 +70,11 @@ $nome = utf8_encode($_SESSION['nome']);
 <!-- #endregion -->
 
 <!-- #region Modal Cadastro de Produtos -->
-<div class="modal fade" id="cadastroProdutosModal" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header bg-primary">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title"><center>Cadastro de Produtos</center></h4>
-			</div>
-			<div class="modal-body">
-				<IFRAME src="cadastroProdutosForm.php" width="550" height="540" scrolling="yes" frameborder="0"></IFRAME>
-				<!-- <p>NUM SEI</p> -->
-			</div>
-		</div>
-		
-		</div>
-	</div>
+<?php include 'cadastroProduto.php'?>
 <!-- #endregion -->
 
 <!-- #region Rodapé -->
-	<footer class="container-fluid text-center">
-		<p>Scamboo® <br/>
-		<i>Desenvolvido por:<br/>Dhuli Gabriele & Endriu Gabriel</i></p>
-	</footer>
+<?php include 'rodape.html' ?>
 <!-- #endregion -->
 </body>
 </html>

@@ -41,7 +41,7 @@ $nome = utf8_encode($_SESSION['nome']);
 
 <!-- #region Rodapé -->
 <?php 
-	include 'rodape.php'
+	include 'rodape.html'
 ?>
 <!-- #endregion -->
 </body>

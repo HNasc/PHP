@@ -134,10 +134,10 @@ footer {
 }
 .scb-prod-col-3{
     float: left;
-    height: 102px;
+    /* height: 102px; */
     overflow: hidden;
     padding: 30px 10px 0 0;
-    width: 125px;
+    /* width: 125px; */
 }
 .scb-prod-col-3 button{
     float: left;
@@ -150,6 +150,6 @@ footer {
     height: 102px;
     overflow: hidden;
     padding: 10px 10px 0 0;
-    width: 70px;
+    width: 100px;
     margin-bottom: 5px !important;
 }

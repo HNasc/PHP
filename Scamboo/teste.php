@@ -1,1 +1,0 @@
-<?php echo "TESTE =".$result['Nome']; ?>
