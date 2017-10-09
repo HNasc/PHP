@@ -15,17 +15,36 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>                        
 	</button>
-	<a class="navbar-brand" href="#">Scamboo</a>
+	<a class="navbar-brand" href="index.php">Scamboo</a>
 	</div>
 	<div class="collapse navbar-collapse" id="myNavbar">
 	<ul class="nav navbar-nav">
-		<li class="active"><a href="#">Produtos</a></li>
+	<?php
+			if($_SERVER['HTTP_REFERER'] == "index.php")
+			echo '<li class="active">';
+			else
+			echo '<li>';
+		?>
+		<a href="#">Produtos</a></li>
+		<?php
+			if(isset($_SESSION['IdUsuario']))
+			include 'opcoesUsuario.php';
+		?>
 		<li><a href="#" data-toggle="modal" data-target="#quemSomos">Quem Somos</a></li>
 		<li><a href="#" data-toggle="modal" data-target="#contatoModal">Contato</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
-		<li><a href='#' data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>
-		<li><a href='#' data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<?php
+			if(isset($_SESSION['IdUsuario'])){
+				echo '<li><a href="#">Olá, '.$_SESSION['nome'].'!</a></li>';
+				echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>';
+			}
+			else{
+				echo '<li><a href="#" data-toggle="modal" data-target="#CadastreseModal"><span class="glyphicon glyphicon-user"></span> Cadastre-se</a></li>';
+				echo '<li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>';
+			}
+			
+		?>
 	</ul>
 	</div>
 </div>

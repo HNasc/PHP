@@ -27,15 +27,15 @@ $nome = utf8_encode($_SESSION['nome']);
 </head>
 <body>
 <!-- #region Cabeçalho -->
-	<div class="jumbotron">
+	<!-- <div class="jumbotron">
 	<div class="container text-center">
 		<img src='css/img/logo_v2.png' alt='Logo' title='www.scamboo.com.br' />
 	</div>
-	</div>
+	</div> -->
 <!-- #endregion -->
 
 <!-- #region Barra de Menu -->
-	<nav class="navbar navbar-inverse">
+	<!-- <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,7 +43,7 @@ $nome = utf8_encode($_SESSION['nome']);
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>                        
 		</button>
-		<a class="navbar-brand" href="#">Olá, <?php echo($nome); ?></a>
+		<a class="navbar-brand" href="#">Olá, <?php //echo($nome); ?></a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
@@ -55,11 +55,11 @@ $nome = utf8_encode($_SESSION['nome']);
 		</ul>
 		</div>
 	</div>
-	</nav>
+	</nav> -->
 <!-- #endregion -->
-
+<?php include 'cabecalho.php'?>
 <!-- #region Conteudo -->
-<h3 align="center">Produtos</h3><br>
+<h3 align="center">Meus Produtos</h3><br>
 <div class="container text-left">    
   <div class="row">
 		<?php 
