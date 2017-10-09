@@ -7,9 +7,8 @@ session_start();
 mb_internal_encoding("UTF-8"); 
 mb_http_output( "iso-8859-1" );  
 ob_start("mb_output_handler");   
-header("Content-Type: text/html; charset=ISO-8859-1",true);
-if(!$_SESSION['IdUsuario'])
-$nome = utf8_encode($_SESSION['nome']);
+if(!isset($_SESSION['IdUsuario']))
+$nome = utf8_encode(isset($_SESSION['nome']));
 ?> 
 <!DOCTYPE html>
 <html>

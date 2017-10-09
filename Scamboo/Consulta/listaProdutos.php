@@ -32,7 +32,7 @@
                 <div class="scb-prod-col-3">
                 <?php 
                 if($idUsuario <> $result['IdUsuario']){
-                    echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
+                    echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
                 }
                 else{
                     echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>        ';

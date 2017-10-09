@@ -2,5 +2,5 @@
 	include 'conBase.php';
 	$obj= new conBase();
 	$obj -> conectaDB();
-	$obj -> consultaProdutos();
+	$obj -> consultaProdutosUsuario();
 ?>

@@ -20,12 +20,15 @@
 	<div class="collapse navbar-collapse" id="myNavbar">
 	<ul class="nav navbar-nav">
 	<?php
-			if($_SERVER['HTTP_REFERER'] == "index.php")
-			echo '<li class="active">';
-			else
-			echo '<li>';
+			$endereco = $_SERVER['REQUEST_URI'];
+			if($endereco == "/php/scamboo/index.php"){
+				echo '<li class="active">';
+			}
+			else{
+				echo '<li>';
+			}
 		?>
-		<a href="#">Produtos</a></li>
+		<a href="index.php">Produtos</a></li>
 		<?php
 			if(isset($_SESSION['IdUsuario']))
 			include 'opcoesUsuario.php';
