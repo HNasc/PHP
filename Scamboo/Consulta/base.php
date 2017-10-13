@@ -98,9 +98,12 @@ class conBase{
                 
  			}
 			}
-	    }//ConsultaProdutos
+		}//ConsultaProdutos
+		function deletaProduto() {
+			
+		}
 }//Class
-
+		
 /*
 
 */

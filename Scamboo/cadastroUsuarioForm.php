@@ -34,7 +34,8 @@
 	</div>
 	<div class="form-group">
       <label for="email">Email:</label>
-      <input name="email" type="email" class="form-control" placeholder='exemplo@scamboo.com' maxlength="80"/>
+      <input name="email" id="email" type="email" class="form-control" placeholder='exemplo@scamboo.com' maxlength="80"/>
+	  <div id='resposta'></div>
     </div>
 	<div class='form-group'>
 		<label for='telefone'>Fone:</label>

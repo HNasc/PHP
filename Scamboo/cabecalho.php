@@ -21,7 +21,7 @@
 	<ul class="nav navbar-nav">
 	<?php
 			$endereco = $_SERVER['REQUEST_URI'];
-			if($endereco == "/php/scamboo/index.php"){
+			if($endereco == "/php/scamboo/index.php" || $endereco == "/php/scamboo/" ){
 				echo '<li class="active">';
 			}
 			else{

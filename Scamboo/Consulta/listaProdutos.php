@@ -31,12 +31,17 @@
                 </div>
                 <div class="scb-prod-col-3">
                 <?php 
+                $idUsuario = 0;
+                
+                if(isset($_SESSION['IdUsuario']) > 0)
+                $idUsuario = $_SESSION['IdUsuario'];
+
                 if($idUsuario <> $result['IdUsuario']){
                     echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
                 }
                 else{
                     echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>        ';
-                    echo '<a href="#" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>';
+                    echo '<a href="Deleta/deletaProduto.php" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>';
                 }
                 ?>
                 <!-- <a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/> -->

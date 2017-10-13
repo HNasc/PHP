@@ -114,3 +114,23 @@ if (Digitato != 8) { // backspace
     return true; 
 }
 }
+
+var email = $("#email");
+email.change(function() {
+  $.ajax({
+    url: '../Cadastro/validaEmail.php',
+    type: 'POST',
+    data: email.val(),
+    dataType: 'json',
+    success: function(data) {
+      console.log(data);
+      if (data.email) { // se existir
+        $("#resposta").append('Ja existe um usuario cadastrado com este email');
+      }
+
+    },
+    error: function() {
+      $("#resultado").show().fadeOut(5000);
+    }
+  });
+});
