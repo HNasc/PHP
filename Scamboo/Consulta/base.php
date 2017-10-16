@@ -4,16 +4,17 @@ class conBase{
 	public $server='localhost';
 	public $username='root';
 	public $pw='';
+
 	function conectaDB() {
-	$connect=mysql_connect($this ->server, $this ->username, $this ->pw);
-		mysql_set_charset("utf8", $connect);
-		$selectDB=mysql_select_db($this ->dbname, $connect);
-		if (!$selectDB) die ('Erroooooo!!!'.mysql_error());
-		//echo 'Selecionado!';
+	$connect=mysqli_connect($this ->server, $this ->username, $this ->pw);
+		mysqli_set_charset($connect, "utf8");
+		$selectDB=mysqli_select_db($connect, $this ->dbname);
+		if (!$selectDB) die ('Erroooooo!!!'.mysqli_error($connect));
 		}
 												/* CONSULTA PRODUTOS */
 		function consultaProdutos() {
 			//Variaveis
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
 			if(isset($_SESSION['IdUsuario']) > 0)
 			$idUsuario = $_SESSION['IdUsuario'];
 
@@ -35,7 +36,7 @@ class conBase{
 					</form> </div><br />";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
-			$query= mysql_query("SELECT produto.IdProduto,
+			$query= mysqli_query($link,"SELECT produto.IdProduto,
 										produto.IdUsuario,
 										produto.Nome AS NomeProduto,
 										produto.Descricao,
@@ -51,7 +52,7 @@ class conBase{
 								INNER JOIN usuario ON usuario.IdUsuario = produto.IdUsuario
 								WHERE produto.Nome LIKE '%$busca%' and produto.Situacao = 'A' ORDER BY produto.Nome");
 			
-            while($result=mysql_fetch_assoc($query)){
+            while($result=mysqli_fetch_assoc($query)){
 				if(isset($result['NomeProduto']) && $result['Categoria']){
 				include 'Consulta/listaProdutos.php';
                 
@@ -60,6 +61,7 @@ class conBase{
 		}//ConsultaProdutos
 		function consultaProdutosUsuario() {
 			//Variaveis
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
 			if(isset($_SESSION['IdUsuario']) > 0)
 			$idUsuario = $_SESSION['IdUsuario'];
 
@@ -76,7 +78,7 @@ class conBase{
 					</form> </div><br />";
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
-			$query= mysql_query("SELECT produto.IdProduto,
+			$query= mysqli_query("SELECT produto.IdProduto,
 										produto.IdUsuario,
 										produto.Nome AS NomeProduto,
 										produto.Descricao,
@@ -92,7 +94,7 @@ class conBase{
 								INNER JOIN usuario ON usuario.IdUsuario = produto.IdUsuario
 								WHERE produto.Nome LIKE '%$busca%' and produto.Situacao = 'A' and produto.IdUsuario = $idUsuario ORDER BY produto.Nome");
 			
-            while($result=mysql_fetch_assoc($query)){
+            while($result=mysqli_fetch_assoc($query)){
 				if(isset($result['NomeProduto']) && $result['Categoria']){
 				include 'Consulta/listaProdutos.php';
                 
