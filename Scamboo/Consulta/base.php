@@ -79,6 +79,7 @@ class conBase{
             if (isset($_POST['busca']))
             $busca=$_POST['busca'];
 			$query= mysqli_query($link,"SELECT produto.IdProduto,
+			$query= mysqli_query("SELECT produto.IdProduto,
 										produto.IdUsuario,
 										produto.Nome AS NomeProduto,
 										produto.Descricao,
