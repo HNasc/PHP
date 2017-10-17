@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- <link href="css/detalheProduto.css" rel="stylesheet" type="text/css"/> -->
 </head>
 <body>
     <div class="produtos">
@@ -40,8 +39,8 @@
                     echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
                 }
                 else{
-                    echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>        ';
-                    echo '<a href="Deleta/deletaProduto.php" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</a>';
+                    // echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>        ';
+                    include 'opcoesUsuarioProduto.php';
                 }
                 ?>
                 <!-- <a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/> -->

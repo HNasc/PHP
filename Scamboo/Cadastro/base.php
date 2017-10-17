@@ -5,27 +5,27 @@ class cadBase{
 	public $pw=''; //sem senha!
 	public $dbname='scamboo';
 	function conectaDB(){
-		$connect=mysql_connect($this ->server, $this ->username, $this ->pw);
-		mysql_set_charset('utf8',$connect);
-		$selectDB=mysql_select_db($this ->dbname, $connect);
-		if (!$selectDB) die ('Erro ao se conectar: '.mysql_error());
-		//echo 'Selecionado!';
+		$connect=mysqli_connect($this ->server, $this ->username, $this ->pw);
+		mysqli_set_charset($connect, "utf8");
+		$selectDB=mysqli_select_db($connect, $this ->dbname);
+		if (!$selectDB) die ('Erroooooo!!!'.mysqli_error($connect));
 		}
 		function cadUsuarios($nome,$sexo,$nascimento,$cpf,$email,$telefone,$endereco,$numero,$complemento,$cidade,$bairro,$estado,$cep,$usuario,$senha){
 			//echo $_POST['nome'], '<br/>', $_POST['tipo_pessoa'], '<br/>', $_POST['sexo'], '<br/>', $_POST['nascimento'], '<br/>', $_POST['cpf_cnpj'], '<br/>', $_POST['email'], '<br/>', $_POST['telefone'], '<br/>', $_POST['endereco'], '<br/>', $_POST['numero'], '<br/>', $_POST['complemento'], '<br/>', $_POST['cidade'], '<br/>', $_POST['bairro'], '<br/>', $_POST['estado'], '<br/>', $_POST['cep'], '<br/>', $_POST['usuario'], '<br/>', $_POST['senha'];
-			if(!empty($nome) && !empty($cpf) && !empty($email) && !empty($endereco) && !empty($numero) && !empty($cidade) && !empty($bairro) && !empty($estado) && !empty($cep) && !empty($usuario) && !empty($senha))
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
+			if(!empty($nome) && !empty($cpf) && !empty($email) && !empty($usuario) && !empty($senha))
 			{
-				$pesquisar_email=mysql_query("SELECT email FROM usuario");
-				$pesquisar_cpf=mysql_query("SELECT cpf FROM usuario WHERE situacao = 'A'");
+				$pesquisar_email=mysqli_query($link,"SELECT email FROM usuario");
+				$pesquisar_cpf=mysqli_query($link,"SELECT cpf FROM usuario WHERE situacao = 'A'");
 
-				while($result = mysql_fetch_assoc($pesquisar_email))
+				while($result = mysqli_fetch_assoc($pesquisar_email))
 				{
 						if($result['email'] == $email)
 						{
 							$contemail++;
 						}
 				}
-				while($result = mysql_fetch_assoc($pesquisar_cpf))
+				while($result = mysqli_fetch_assoc($pesquisar_cpf))
 				{
 						if($result['cpf'] == $cpf)
 						{
@@ -36,17 +36,17 @@ class cadBase{
 				if(@$contemail != 0)
 				{
 					echo "E-mail já está cadastrado no site!";
-					header("Refresh:3; url=cadastroUsuarioForm.php");
+					header("Refresh:3; url=../index.php");
 				}
 				else if(@$contecpf != 0){
 					echo "CPF já está cadastrado no site!";
-					header("Refresh:3; url=cadastroUsuarioForm.php");
+					header("Refresh:3; url=../index.php");
 				}
 				else
 				{
-					$inserir_cliente=mysql_query("INSERT INTO usuario (Nome, Sexo, Nascimento, CPF, Email, Telefone, Endereco, Numero, Complemento, Cidade, Bairro, UF, CEP, Usuario, Senha, Situacao) 
+					$inserir_cliente=mysqli_query($link,"INSERT INTO usuario (Nome, Sexo, Nascimento, CPF, Email, Telefone, Endereco, Numero, Complemento, Cidade, Bairro, UF, CEP, Usuario, Senha, Situacao) 
 																values('$nome','$sexo',STR_TO_DATE( '$nascimento', '%d/%m/%Y' ),'$cpf','$email','$telefone','$endereco','$numero','$complemento','$cidade','$bairro','$estado','$cep','$usuario',SHA2('$senha',256), 'A')");
-					if(!$inserir_cliente)die("Erro ao inserir dados: ".mysql_error());
+					if(!$inserir_cliente)die("Erro ao inserir dados: ".mysqli_error($link));
 					else
 					{
 						echo '<br/><p><font color="green"><h3 align="center">Cadastro salvo com sucesso!</h3></font></p>';
@@ -55,12 +55,13 @@ class cadBase{
 			}
 			else
 			{
-				echo "Preencha todos os campos!";
+				echo "Os campos com '*' devem ser preenchidos!";
 			}
 		}//cadUsuarios
 
 
 		function cadProdutos($nome, $img, $categoria, $descricao, $idUsuario){
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
 					if(!empty($nome) && !empty($categoria) && !empty($idUsuario) ){
 					if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 		{
@@ -105,10 +106,10 @@ class cadBase{
 			echo "<br/><br/>Você não enviou nenhuma imagem!";
 		}
 						if(($novoNome) == null || ($novoNome) == ''){ $novoNome = 'default.jpg'; }
-						$inserir_produto=mysql_query(" INSERT INTO Produto
+						$inserir_produto=mysqli_query($link," INSERT INTO Produto
 						(nome,img,categoria,descricao,idusuario,situacao,publicacao) values('$nome', '$novoNome', '$categoria', '$descricao', '$idUsuario', 'A', now())");
 						if(!$inserir_produto){
-							die("Erro ao executar a query: ".mysql_error());
+							die("Erro ao executar a query: ".mysqli_error($link));
 						}
 						else
 						{
@@ -119,8 +120,8 @@ class cadBase{
 					}
 		}//cadProdutos
 		function validaEmail($email){
-			$pesquisar_email=mysql_query("SELECT email FROM usuario");
-			while($result = mysql_fetch_assoc($pesquisar_email))
+			$pesquisar_email=mysqli_query($link,"SELECT email FROM usuario");
+			while($result = mysqli_fetch_assoc($pesquisar_email))
 			{
 					if($result['email'] == $email)
 					{

@@ -10,13 +10,21 @@
   <script language="JavaScript" type="text/javascript" src="js/MascaraValidacao.js"></script> 
 </head>
 <body>
+<div class="modal fade" id="CadastreseModal" role="dialog">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header bg-primary">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<h4 class="modal-title">Cadastro de usuário</h4>
+		</div>
+		<div class="modal-body">
 	<form name="formCadastro" action='Cadastro/cadUsuarios.php' enctype="multipart/form-data" method='post'>
 
 <!-- #region Dados pessoais -->
 	<p>
 	<center><h3>Dados pessoais</h3></center>
 	<div class="form-group">
-		<label for='nome'>Nome:</label>
+		<label for='nome'>*Nome:</label>
 		<input name='nome' type='text' class="form-control" placeholder='Nome Completo' maxlength="80"/>
 	</div>
 	<div class="form-group">
@@ -29,11 +37,11 @@
 		<input name='nascimento' type='text' class="form-control" maxlength="10" onKeyPress="MascaraData(formCadastro.nascimento);" onBlur= "ValidaData(formCadastro.nascimento);"/>
 	</div>
 	<div class="form-group">
-		<label for='cpf'>CPF:</label>
+		<label for='cpf'>*CPF:</label>
 		<input name='cpf' type='text' class="form-control" maxlength="15"onKeyPress="MascaraCPF(formCadastro.cpf);"/>
 	</div>
 	<div class="form-group">
-      <label for="email">Email:</label>
+      <label for="email">*Email:</label>
       <input name="email" id="email" type="email" class="form-control" placeholder='exemplo@scamboo.com' maxlength="80"/>
 	  <div id='resposta'></div>
     </div>
@@ -108,11 +116,11 @@
 	<fieldset id='fieldcadacess'>
 	<legend>Dados de acesso</legend>
 	<div class='form-group'>
-		<label for='usuario'>Usuário:</label>
+		<label for='usuario'>*Usuário:</label>
 		<input name='usuario' type='text' class="form-control" placeholder='Digite seu nome de usuário' />
 	</div>
 	<div class='form-group'>
-		<label for='senha'>Senha:</label>
+		<label for='senha'>*Senha:</label>
 		<input  name='senha' type='password' class='form-control' placeholder='Digite sua senha' />
   	</div>
 	</fieldset>
@@ -121,5 +129,9 @@
 <!-- #endregion -->
 
 	</form>
+	</div>
+	</div>
+	</div>
+	</div>
 </body>
 </html>

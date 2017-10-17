@@ -95,24 +95,12 @@
 <!-- #endregion -->
 
 <!-- #region Modal Cadastro de Usuario -->
-<div class="modal fade" id="CadastreseModal" role="dialog">
-	<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header bg-primary">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h4 class="modal-title">Cadastro de usuário</h4>
-		</div>
-		<div class="modal-body">
-			<IFRAME src="cadastroUsuarioForm.php" width="580" height="540" scrolling="yes" frameborder="0"></IFRAME> 
-		</div>
-	</div>
-	</div>
-</div>
+<?php include 'cadastroUsuarioForm.php'; ?>
 <!-- #endregion -->
 
 <!-- #region Banner -->
 <!-- Código do Banner em implementação -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -145,5 +133,5 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div>
+</div> -->
 <!-- #endregion -->
