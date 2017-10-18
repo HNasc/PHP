@@ -1,7 +1,5 @@
 <?php
 session_start();
-mb_internal_encoding("UTF-8"); 
-mb_http_output( "iso-8859-1" );  
 ob_start("mb_output_handler");   
 if(!$_SESSION['IdUsuario']) {
   exit("erro sem permissão para essa parte");
