@@ -50,12 +50,14 @@ class cadBase{
 					else
 					{
 						echo '<br/><p><font color="green"><h3 align="center">Cadastro salvo com sucesso!</h3></font></p>';
+						header("Refresh:3; url=../index.php");
 					}
 				}
 			}
 			else
 			{
 				echo "Os campos com '*' devem ser preenchidos!";
+				header("Refresh:3; url=../index.php");
 			}
 		}//cadUsuarios
 
@@ -110,13 +112,16 @@ class cadBase{
 						(nome,img,categoria,descricao,idusuario,situacao,publicacao) values('$nome', '$novoNome', '$categoria', '$descricao', '$idUsuario', 'A', now())");
 						if(!$inserir_produto){
 							die("Erro ao executar a query: ".mysqli_error($link));
+							header("Refresh:10; url=../index.php");
 						}
 						else
 						{
 							echo '<br/><p><font color="green"><h3 align="center">Cadastro salvo com sucesso!</h3></font></p>';
+							header("Refresh:3; url=../index.php");
 						}
 					}else{
 						echo "Preencha todos os campos!";
+						header("Refresh:3; url=../index.php");
 					}
 		}//cadProdutos
 		function validaEmail($email){

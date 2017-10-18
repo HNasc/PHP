@@ -39,8 +39,14 @@
                     echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
                 }
                 else{
-                    // echo '<a href="#" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>        ';
-                    include 'opcoesUsuarioProduto.php';
+                    echo '<a href="#" data-toggle="modal" data-target="#EdicaoProdutosModal" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>';
+                    
+                    echo '<div class="scb-prod-col-3-2">';
+                    echo '<form action="Alteracao/delProdutos.php" enctype="multipart/form-data" method="POST">';
+                    echo '<input type="hidden" name="IdProduto" value="'.$result['IdProduto'].'" />';
+                    echo '<button type="submit" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</button>';
+                    echo '</form>';
+                    echo '</div>';
                 }
                 ?>
                 <!-- <a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/> -->
@@ -48,6 +54,7 @@
                 <div class="scb-prod-col-4">
                     <?php echo $result['Publicacao']; ?>
                 </div>
+                <?php include 'Alteracao/EditProdutosForm.php'; ?>
             </li>
         </ul>
     </div>
