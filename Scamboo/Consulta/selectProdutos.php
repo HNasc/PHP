@@ -1,0 +1,1 @@
+<option value="<?php echo $result['IdProduto']?>"><?php echo $result['NomeProduto']?> | <?php echo $result['Categoria']?> | <?php echo $result['Publicacao']?></option>

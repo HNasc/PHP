@@ -59,7 +59,7 @@ class conBase{
  			}
 			}
 		}//ConsultaProdutos
-		function consultaProdutosUsuario() {
+		function consultaProdutosUsuarioLista() {
 			//Variaveis
 			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
 			if(isset($_SESSION['IdUsuario']) > 0)
@@ -100,10 +100,35 @@ class conBase{
                 
  			}
 			}
-		}//ConsultaProdutos
-		function deletaProduto() {
+		}//ConsultaProdutosUsuarioLista
+		function consultaProdutosUsuarioSelect() {
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
+			if(isset($_SESSION['IdUsuario']) > 0)
+			$idUsuario = $_SESSION['IdUsuario'];
+
+			$query= mysqli_query($link,"SELECT produto.IdProduto,
+										produto.IdUsuario,
+										produto.Nome AS NomeProduto,
+										produto.Descricao,
+										produto.Categoria,
+										produto.img,
+										produto.Situacao,
+										DATE_FORMAT(produto.Publicacao, '%d/%m/%Y %H:%i') AS Publicacao,
+										usuario.Nome AS NomeUsuario,
+										usuario.Email,
+										usuario.Cidade,
+										usuario.Bairro
+								FROM produto
+								INNER JOIN usuario ON usuario.IdUsuario = produto.IdUsuario
+								WHERE produto.Situacao = 'A' and produto.IdUsuario = $idUsuario ORDER BY produto.Nome");
 			
-		}
+            while($result=mysqli_fetch_assoc($query)){
+				if(isset($result['NomeProduto']) && $result['Categoria']){
+				include 'Consulta/selectProdutos.php';
+                
+ 			}
+			}
+		}//consultaProdutosUsuarioSelect
 }//Class
 		
 /*

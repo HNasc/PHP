@@ -24,8 +24,9 @@ $nome = utf8_encode($_SESSION['nome']);
 <h3 align="center">Meus Produtos</h3><br>
 <div class="container text-left">    
   <div class="row">
-		<?php 
-			include 'Consulta/conProdutosUsuario.php'
+    <?php 
+    	include 'Consulta/base.php';
+			include 'Consulta/conProdutosUsuarioLista.php'
 		?>
   </div>
 </div><br>

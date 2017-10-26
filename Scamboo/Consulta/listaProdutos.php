@@ -23,17 +23,23 @@
             
             if(isset($_SESSION['IdUsuario']) > 0)
             $idUsuario = $_SESSION['IdUsuario'];
+            
+            echo '<div class="scb-prod-col-3-0">';
+            echo '<form action="#" enctype="multipart/form-data" method="POST">';
+            echo '<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-th-list"></span> Detalhes</button><br/>';
+            echo '</form>';
+            echo '</div>';
 
-            if($idUsuario <> $result['IdUsuario']){
-                echo '<a href="#" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
+            if($idUsuario <> $result['IdUsuario'] and $idUsuario <> 0){
+                echo '<a href="#" data-toggle="modal" data-target="#MovimentacaoModal'.$result['IdProduto'].'" class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span> Trocar</a><br/>';
             }
-            else{
-                echo '<a href="#" data-toggle="modal" data-target="#EdicaoProdutosModal'.$result['IdProduto'].'" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>';
+            if($idUsuario == $result['IdUsuario']){
+                echo '<a href="#" data-toggle="modal" data-target="#EdicaoProdutosModal'.$result['IdProduto'].'" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Editar</a>';
                 
                 echo '<div class="scb-prod-col-3-2">';
                 echo '<form action="Alteracao/delProdutos.php" enctype="multipart/form-data" method="POST">';
                 echo '<input type="hidden" name="IdProduto" value="'.$result['IdProduto'].'" />';
-                echo '<button type="submit" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</button>';
+                echo '<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</button>';
                 echo '</form>';
                 echo '</div>';
             }
@@ -43,7 +49,8 @@
             <div class="scb-prod-col-4">
                 <?php echo $result['Publicacao']; ?>
             </div>
-            <?php include 'Alteracao/EditProdutosForm.php'; ?>
         </li>
+        <?php if($idUsuario <> $result['IdUsuario'] and $idUsuario <> 0){include 'Movimentacao/movimentacaoForm.php';} ?>
+        <?php if($idUsuario == $result['IdUsuario']){include 'Alteracao/EditProdutosForm.php';} ?>
     </ul>
 </div>
