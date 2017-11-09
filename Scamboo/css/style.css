@@ -179,3 +179,74 @@ footer {
 .row{
     padding: 0 0 0 100px;
 }
+
+/* PRODUTOS PARA */
+
+.scb-prod-col-1-para{
+    float: right;
+    height: 102px;
+    padding: 0 10px 0 0;
+    width: 150px;
+}
+.scb-prod-col-1-para img:hover,
+.scb-prod-col-1-para img.active{
+    background: #99ccff;
+}
+.scb-prod-image-para{
+    height: 102px;
+    width: 142px;
+}
+.scb-prod-image-box-para{
+    background: #555;
+    border-right: 1px solid #ccc;
+    color: #666;
+    display: table-cell;
+    height: 102px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 135px;
+}
+.scb-prod-image-box-para .image{
+    color: #666;
+    max-height: 102px;
+    max-width: 135px;
+    vertical-align: middle;
+}
+.scb-prod-col-2-info-para{
+    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+}
+.scb-prod-col-2-info-para p{
+    font-size: 1em;
+    line-height: 1.70em;
+}
+.scb-prod-col-3-0-para{
+    float: left;
+    /* height: 102px; */
+    overflow: hidden;
+    padding: 0 10px 0 0;
+    /* width: 125px; */
+}
+.scb-prod-col-2-para{
+    float: right;
+    height: 102px;
+    overflow: hidden;
+    /* padding: 10px 10px 10px 0; */
+    position: relative;
+    width: 170px;
+}
+.scb-prod-col-2-title-para{
+    overflow: hidden;
+    height: 51px;
+}
+
+.scb-prod-col-2-para h3{
+    color: #38b;
+    font-size: 1.167em;
+    font-weight: 700;
+    line-height: 1.143em;
+    max-height: 20px;
+    overflow: hidden;
+}

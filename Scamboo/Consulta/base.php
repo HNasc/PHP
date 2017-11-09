@@ -129,9 +129,50 @@ class conBase{
  			}
 			}
 		}//consultaProdutosUsuarioSelect
+		function consultaSolicitacoes(){
+			$link=mysqli_connect($this ->server, $this ->username, $this ->pw, $this ->dbname);
+			if(isset($_SESSION['IdUsuario']) > 0)
+			$idUsuario = $_SESSION['IdUsuario'];
+
+			$query = mysqli_query($link,"SELECT	ProdDe.IdUsuario IdUsuarioDe, 
+										UsuDe.Nome UsuarioDe, 
+										ProdDe.Nome ProdutoDe,
+										ProdDe.img imgDe,
+										ProdDe.Categoria CategoriaDe,
+										ProdPara.IdUsuario IdUsuarioPara,
+										UsuPara.Nome UsuarioPara,
+										ProdPara.Nome ProdutoPara, 
+										ProdPara.img imgPara,
+										ProdPara.Categoria CategoriaPara,
+										movimentacao.Situacao
+								FROM movimentacao
+								INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
+								INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
+								INNER JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
+								INNER JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
+								WHERE UsuDe.IdUsuario = $idUsuario or UsuPara.IdUsuario = $idUsuario");
+			
+			while($result=mysqli_fetch_assoc($query)){
+				if(isset($result['ProdutoPara']) && $result['ProdutoDe']){
+				include 'Consulta/listaSolicitacoes.php';
+                
+ 			}
+		}
+	}
 }//Class
 		
 /*
-
+SELECT 	ProdDe.IdUsuario IdUsuarioDe, 
+		UsuDe.Nome UsuarioDe, 
+		ProdDe.Nome ProdutoDe, 
+        ProdPara.IdUsuario IdUsuarioPara,
+        UsuPara.Nome UsuarioPara,
+        ProdPara.Nome ProdutoPara, 
+        movimentacao.Situacao
+FROM movimentacao
+JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
+JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
+JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
+JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
 */
 ?>

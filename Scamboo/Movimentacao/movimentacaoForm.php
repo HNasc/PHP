@@ -22,7 +22,7 @@
                     <form action='Movimentacao/SolicitaTroca.php' enctype="multipart/form-data" method='post'>
 
                     <!-- #region Dados -->
-                        <input type="hidden" name="IdProduto" value="<?php echo $result['IdProduto']; ?>" />
+                        <input type="hidden" name="IdProdutoPara" value="<?php echo $result['IdProduto']; ?>" />
                         <div class="produtos">
                         <ul>
                             <li class="scb-item">
@@ -54,7 +54,7 @@
                         <br />
                         <div class="form-group" style="background-color: lightblue;">
                             <label for="solicita">Solicitar troca por:</label>
-                            <select name='ProdutoMovimenta' class="form-control">
+                            <select name='IdProdutoDe' class="form-control">
                                 <?php include 'Consulta/conProdutosUsuarioSelect.php'; ?>
                             </select>
                         </div>
