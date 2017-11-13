@@ -66,7 +66,14 @@
 			<h4 class="modal-title"><center>Quem Somos</center></h4>
 			</div>
 			<div class="modal-body">
-				<IFRAME src="quemSomos.php" width="750" height="700" scrolling="yes" frameborder="0"></IFRAME>
+			<center>
+		<p>
+		<i>Este trabalho foi desenvolvido para a conclusão do técnico em Informática</i><br>
+        <i>para Internet do IFRS-Campus Restinga. Ele tem como objetivo a troca de produtos </i><br>
+        <i>sem o uso de dinheiro tornam possivel a aquisição e desprendimento de produtos. </i><br>
+        <i>Buscamos focar em um sistema regional onde o usuário só irá interagir com gaúchos</i><br>
+        <i> e assim facilitar a não utilização de frete para que não haja gastos para os usuários.</i><br>
+	</center> 
 			</div>
 		</div>
 		
@@ -100,7 +107,7 @@
 
 <!-- #region Banner -->
 <!-- Código do Banner em implementação -->
-<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -117,7 +124,7 @@
       </div>
 
       <div class="item">
-        <img src="css/img/banner2.jpg" alt="Boni Baby">
+        <img src="css/img/Banner3.jpg" alt="Boni Baby">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -133,5 +140,5 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div> -->
+</div>
 <!-- #endregion -->

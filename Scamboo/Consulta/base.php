@@ -144,7 +144,10 @@ class conBase{
 										ProdPara.Nome ProdutoPara, 
 										ProdPara.img imgPara,
 										ProdPara.Categoria CategoriaPara,
-										movimentacao.Situacao
+										case(movimentacao.Situacao)
+                                        when 'P' then 'Pendente'
+                                        when 'F' then 'Finalizado'
+                                        end as Situacao
 								FROM movimentacao
 								INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
 								INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
@@ -158,21 +161,7 @@ class conBase{
                 
  			}
 		}
-	}
+	}//consultaSolicitacoes
 }//Class
 		
-/*
-SELECT 	ProdDe.IdUsuario IdUsuarioDe, 
-		UsuDe.Nome UsuarioDe, 
-		ProdDe.Nome ProdutoDe, 
-        ProdPara.IdUsuario IdUsuarioPara,
-        UsuPara.Nome UsuarioPara,
-        ProdPara.Nome ProdutoPara, 
-        movimentacao.Situacao
-FROM movimentacao
-JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
-JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
-JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
-JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
-*/
 ?>

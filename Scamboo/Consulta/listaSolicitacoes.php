@@ -22,7 +22,9 @@
                 </div>
             </div>
             <div class="scb-prod-col-3">
-            <h4>Trocar por</h4>
+            <h4>Trocar por</h4><br/>
+
+            <strong>Situação: <?php echo $result['Situacao']; ?></strong>
             </div>
             <div class="scb-prod-col-1-para">
                 <div class="scb-prod-image-para">
