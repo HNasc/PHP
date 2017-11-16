@@ -25,9 +25,7 @@
             $idUsuario = $_SESSION['IdUsuario'];
             
             echo '<div class="scb-prod-col-3-0">';
-            echo '<form action="#" enctype="multipart/form-data" method="POST">';
-            echo '<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-th-list"></span> Detalhes</button><br/>';
-            echo '</form>';
+            echo '<a href="#" data-toggle="modal" data-target="#DetalhesProdutosModal'.$result['IdProduto'].'" class="btn btn-success"><span class="glyphicon glyphicon-th-list"></span> Detalhes</a>';
             echo '</div>';
 
             if($idUsuario <> $result['IdUsuario'] and $idUsuario <> 0){
@@ -50,6 +48,7 @@
                 <?php echo $result['Publicacao']; ?>
             </div>
         </li>
+        <?php include 'Consulta/detalhesProdutoForm.php'; ?>
         <?php if($idUsuario <> $result['IdUsuario'] and $idUsuario <> 0){include 'Movimentacao/movimentacaoForm.php';} ?>
         <?php if($idUsuario == $result['IdUsuario']){include 'Alteracao/EditProdutosForm.php';} ?>
     </ul>
