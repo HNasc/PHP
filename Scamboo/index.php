@@ -32,6 +32,11 @@ $nome = utf8_encode(isset($_SESSION['nome']));
 		?>
   </div>
 </div><br>
+
+<!-- #endregion -->
+
+<!-- #region Modal Cadastro de Produtos -->
+<?php include 'cadastroProduto.php'?>
 <!-- #endregion -->
 
 <!-- #region Rodapé -->

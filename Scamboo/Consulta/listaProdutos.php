@@ -39,7 +39,7 @@
                 echo '<div class="scb-prod-col-3-2">';
                 echo '<form action="Alteracao/delProdutos.php" enctype="multipart/form-data" method="POST">';
                 echo '<input type="hidden" name="IdProduto" value="'.$result['IdProduto'].'" />';
-                echo '<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Excluir</button>';
+                echo '<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Excluir</button>';
                 echo '</form>';
                 echo '</div>';
             }

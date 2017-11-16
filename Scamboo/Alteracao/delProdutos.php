@@ -1,6 +1,6 @@
 <?php
 	include 'base.php';
-	$obj= new conBase();
+	$obj= new altBase();
 	$obj -> conectaDB();
 	$obj -> deletaProduto($_POST['IdProduto']);
 ?>

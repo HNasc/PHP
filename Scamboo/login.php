@@ -17,12 +17,11 @@ if($email['IdUsuario']){
     //nome do usuário que vai aparecer na página do usuario
     $_SESSION['nome']=utf8_decode($email['nome']);
     header('Location: paginaUsuario.php');
-    //$aviso="Aeeeee!";
 }
 else {
     //erro ao logar
-    $aviso="Senha ou usuário inválidos!";
+    echo '<br/><p><font color="red"><h3 align="center">Senha ou usuário inválidos!</h3></font></p>';
+    header("Refresh:2; url=index.php");
 }
-    echo $aviso;
 }
 ?>

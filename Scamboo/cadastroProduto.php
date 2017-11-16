@@ -1,8 +1,3 @@
-<?php
-if(!$_SESSION['IdUsuario']) {
-  exit("erro sem permissão para essa parte");
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>

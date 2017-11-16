@@ -87,7 +87,7 @@ footer {
     overflow: hidden;
     /* padding: 10px 10px 10px 0; */
     position: relative;
-    width: 170px;
+    width: 180px;
 }
 .scb-prod-col-2-title{
     overflow: hidden;
@@ -180,13 +180,13 @@ footer {
     padding: 0 0 0 100px;
 }
 
-/* PRODUTOS PARA */
+/*      Produto Para     */
 
 .scb-prod-col-1-para{
     float: right;
     height: 102px;
-    padding: 0 10px 0 0;
-    width: 150px;
+    padding: 0 10px 0 10px;
+    width: 145px;
 }
 .scb-prod-col-1-para img:hover,
 .scb-prod-col-1-para img.active{
@@ -216,7 +216,7 @@ footer {
 .scb-prod-col-2-info-para{
     overflow: hidden;
     position: absolute;
-    bottom: 10px;
+    padding: 0 0 0 7em;
 }
 .scb-prod-col-2-info-para p{
     font-size: 1em;
@@ -231,11 +231,12 @@ footer {
 }
 .scb-prod-col-2-para{
     float: right;
+    text-align: right;
     height: 102px;
     overflow: hidden;
     /* padding: 10px 10px 10px 0; */
     position: relative;
-    width: 170px;
+    width: 200px;
 }
 .scb-prod-col-2-title-para{
     overflow: hidden;
@@ -249,4 +250,29 @@ footer {
     line-height: 1.143em;
     max-height: 20px;
     overflow: hidden;
+}
+
+/*END Produto Para*/
+/*Produto De*/
+.scb-prod-col-2-info-de{
+    overflow: hidden;
+    position: absolute;
+}
+.scb-prod-col-2-info-de p{
+    font-size: 1em;
+    line-height: 1.70em;
+}
+/*END Produto De*/
+
+.scb-prod-col-3-sol{
+    float: left;
+    overflow: hidden;
+    padding: 0 10px 0 0;
+    /*text-align: center;*/
+}
+.scb-prod-col-3-sol button{
+    float: left;
+    margin: 0 5px 5px;
+    overflow: hidden;
+
 }

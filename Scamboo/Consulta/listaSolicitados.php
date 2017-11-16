@@ -21,15 +21,17 @@
                     </div>
                 </div>
                 <div class="scb-prod-col-3" style="text-align: center; padding: 10px 10px 0 150px;">
-                    <span class="glyphicon glyphicon-arrow-right" style="font-size: 30px;"></span><br/>
-                    <strong>
                         <?php
                             if($result['Situacao'] == 'Pendente'){
-                                echo '<form action="Movimentacao/cancelaTroca.php" enctype="multipart/form-data" method="POST">';
+                                echo '<form action="Movimentacao/aceitaTroca.php" enctype="multipart/form-data" method="POST">';
                                 echo '<input type="hidden" name="IdMovimentacao" value="'.$result['IdMovimentacao'].'" />';
-                                echo '<button type="submit" class="btn btn-Secondary"><span class="glyphicon glyphicon-remove"></span> Cancelar</button><br/>';
+                                echo '<button type="submit" class="btn btn-primary" style="float: unset; width: 96.0313px;"><span class="glyphicon glyphicon-glyphicon glyphicon-ok"></span> Aceitar</button><br/>';
                                 echo '</form>';
-                                echo '<p><font color="red"><strong>'.$result['Situacao'].'</strong></p></font>';
+
+                                echo '<form action="Movimentacao/recusaTroca.php" enctype="multipart/form-data" method="POST">';
+                                echo '<input type="hidden" name="IdMovimentacao" value="'.$result['IdMovimentacao'].'" />';
+                                echo '<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Recusar</button><br/>';
+                                echo '</form>';
                             }else if($result['Situacao'] == 'Finalizado'){
                                 
                                 echo '<span class="glyphicon glyphicon-arrow-right" style="font-size: 50px;"></span><br/>';
@@ -40,7 +42,6 @@
                                 echo '<p><font color="red"><strong>'.$result['Situacao'].'</strong></p></font>';
                             }
                         ?>
-                    </strong>
                 </div>
                 <div class="scb-prod-col-1-para">
                     <div class="scb-prod-image-para">

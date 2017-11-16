@@ -19,24 +19,20 @@ $nome = utf8_encode($_SESSION['nome']);
   <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<?php include 'cabecalho.php'?>
+  <?php include 'cabecalho.php'?>
 <!-- #region Conteudo -->
-<h3 align="center">Minhas Solicitações de Troca</h3><br>
-<div class="container text-left">    
-  <div class="row">
-    <?php 
-			include 'Consulta/conSolicitacoes.php'
-		?>
-  </div>
-</div><br>
+
+  <?php 
+    include 'Consulta/conSolicitacoes.php'
+  ?>
 <!-- #endregion -->
 
 <!-- #region Modal Cadastro de Produtos -->
-<?php include 'cadastroProduto.php'?>
+  <?php include 'cadastroProduto.php'?>
 <!-- #endregion -->
 
 <!-- #region Rodapé -->
-<?php include 'rodape.html' ?>
+  <?php include 'rodape.html' ?>
 <!-- #endregion -->
 </body>
 </html>

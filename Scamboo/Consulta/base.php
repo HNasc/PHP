@@ -134,33 +134,87 @@ class conBase{
 			if(isset($_SESSION['IdUsuario']) > 0)
 			$idUsuario = $_SESSION['IdUsuario'];
 
-			$query = mysqli_query($link,"SELECT	ProdDe.IdUsuario IdUsuarioDe, 
-										UsuDe.Nome UsuarioDe, 
-										ProdDe.Nome ProdutoDe,
-										ProdDe.img imgDe,
-										ProdDe.Categoria CategoriaDe,
-										ProdPara.IdUsuario IdUsuarioPara,
-										UsuPara.Nome UsuarioPara,
-										ProdPara.Nome ProdutoPara, 
-										ProdPara.img imgPara,
-										ProdPara.Categoria CategoriaPara,
-										case(movimentacao.Situacao)
-                                        when 'P' then 'Pendente'
-                                        when 'F' then 'Finalizado'
-                                        end as Situacao
-								FROM movimentacao
-								INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
-								INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
-								INNER JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
-								INNER JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
-								WHERE UsuDe.IdUsuario = $idUsuario or UsuPara.IdUsuario = $idUsuario");
-			
-			while($result=mysqli_fetch_assoc($query)){
+			$resultado = mysqli_query($link, "SELECT movimentacao.IdMovimentacao
+												FROM movimentacao
+												INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
+												INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
+												INNER JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
+												INNER JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
+												WHERE UsuDe.IdUsuario = $idUsuario or UsuPara.IdUsuario = $idUsuario");
+
+			$rowcount = @mysqli_num_rows($resultado);
+
+			if($rowcount > 0)
+			{
+				$solicita = mysqli_query($link,"SELECT	IdMovimentacao,
+							ProdDe.IdUsuario IdUsuarioDe, 
+							UsuDe.Nome UsuarioDe, 
+							ProdDe.Nome ProdutoDe,
+							ProdDe.img imgDe,
+							ProdDe.Categoria CategoriaDe,
+							ProdPara.IdUsuario IdUsuarioPara,
+							UsuPara.Nome UsuarioPara,
+							ProdPara.Nome ProdutoPara, 
+							ProdPara.img imgPara,
+							ProdPara.Categoria CategoriaPara,
+							case(movimentacao.Situacao)
+							when 'P' then 'Pendente'
+							when 'F' then 'Finalizado'
+							when 'A' then 'Aceito'
+							when 'R' then 'Recusado'
+							end as Situacao
+					FROM movimentacao
+					INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
+					INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
+					INNER JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
+					INNER JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
+					WHERE UsuDe.IdUsuario = $idUsuario");
+			if(mysqli_num_rows($solicita) > 0){
+				echo '<h3 align="center">Minhas Solicitações de Troca</h3><br>';
+			}
+			while($result=mysqli_fetch_assoc($solicita)){
 				if(isset($result['ProdutoPara']) && $result['ProdutoDe']){
 				include 'Consulta/listaSolicitacoes.php';
                 
- 			}
-		}
+				}
+			}
+			 $solicitado = mysqli_query($link,"SELECT IdMovimentacao,
+			 			ProdDe.IdUsuario IdUsuarioDe, 
+						UsuDe.Nome UsuarioDe, 
+						ProdDe.Nome ProdutoDe,
+						ProdDe.img imgDe,
+						ProdDe.Categoria CategoriaDe,
+						ProdPara.IdUsuario IdUsuarioPara,
+						UsuPara.Nome UsuarioPara,
+						ProdPara.Nome ProdutoPara, 
+						ProdPara.img imgPara,
+						ProdPara.Categoria CategoriaPara,
+						case(movimentacao.Situacao)
+						when 'P' then 'Pendente'
+						when 'F' then 'Finalizado'
+						when 'A' then 'Aceito'
+						when 'R' then 'Recusado'
+						end as Situacao
+				FROM movimentacao
+				INNER JOIN produto ProdDe on ProdDe.IdProduto = movimentacao.IdProdutoDe
+				INNER JOIN produto ProdPara on ProdPara.IdProduto = movimentacao.IdProdutoPara
+				INNER JOIN usuario UsuDe on UsuDe.IdUsuario = ProdDe.IdUsuario
+				INNER JOIN usuario UsuPara on UsuPara.IdUsuario = ProdPara.IdUsuario
+				WHERE UsuPara.IdUsuario = $idUsuario");
+			if(mysqli_num_rows($solicitado) > 0){
+				echo '<h3 align="center">Solicitações de Troca</h3><br>';
+			}
+			while($result=mysqli_fetch_assoc($solicitado)){
+			if(isset($result['ProdutoPara']) && $result['ProdutoDe']){
+			include 'Consulta/listaSolicitados.php';
+
+				}
+			}
+			}
+			else
+			{
+				echo '<br/><p><font color="red"><h2 align="center">Você não possui solicitações</h2></font></p>';
+			}
 	}//consultaSolicitacoes
 }//Class
 		

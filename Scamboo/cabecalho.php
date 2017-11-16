@@ -15,7 +15,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>                        
 	</button>
-	<a class="navbar-brand" href="index.php">Scamboo</a>
+	<a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
 	</div>
 	<div class="collapse navbar-collapse" id="myNavbar">
 	<ul class="nav navbar-nav">
@@ -107,7 +107,7 @@
 
 <!-- #region Banner -->
 <!-- Código do Banner em implementação -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -140,5 +140,5 @@
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-</div>
+</div> -->
 <!-- #endregion -->
