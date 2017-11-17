@@ -39,7 +39,7 @@
 	<ul class="nav navbar-nav navbar-right">
 		<?php
 			if(isset($_SESSION['IdUsuario'])){
-				echo '<li><a href="#">Olá, '.$_SESSION['nome'].'!</a></li>';
+				echo '<li><a href="#" data-toggle="modal" data-target="#EdicaoUsuarioModal'.$_SESSION['IdUsuario'].'">Olá, '.$_SESSION['nome'].'!</a></li>';
 				echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>';
 			}
 			else{
